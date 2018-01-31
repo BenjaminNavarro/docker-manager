@@ -73,10 +73,10 @@ func printImageSelectionMenu(configurations []ImageConfiguration) {
 
 func printActionSelectionMenu() {
 	fmt.Println("Please select an action for this container:")
-	fmt.Println("1) Start")
-	fmt.Println("2) Connect")
-	fmt.Println("3) Save")
-	fmt.Println("4) Stop")
+	fmt.Println("\t1) Start")
+	fmt.Println("\t2) Connect")
+	fmt.Println("\t3) Save")
+	fmt.Println("\t4) Stop")
 }
 
 func getUserChoice(min, max int) int {
