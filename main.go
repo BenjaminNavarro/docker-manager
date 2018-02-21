@@ -43,11 +43,13 @@ func main() {
 			selectedAction = saveContainerAction
 		case "stop":
 			selectedAction = stopContainerAction
+		case "show":
+			selectedAction = showContainerConfiguration
 		}
 	}
 	if selectedAction < 0 {
 		printActionSelectionMenu()
-		selectedAction = getUserChoice(1, 4) - 1
+		selectedAction = getUserChoice(1, 5) - 1
 	}
 
 	switch selectedAction {
@@ -59,6 +61,8 @@ func main() {
 		saveContainer(&configurations[selectedConfiguration])
 	case stopContainerAction:
 		stopContainer(&configurations[selectedConfiguration])
+	case showContainerConfiguration:
+		configurations[selectedConfiguration].Print()
 	}
 }
 
@@ -77,6 +81,7 @@ func printActionSelectionMenu() {
 	fmt.Println("\t2) Connect")
 	fmt.Println("\t3) Save")
 	fmt.Println("\t4) Stop")
+	fmt.Println("\t5) Show")
 }
 
 func getUserChoice(min, max int) int {
@@ -93,10 +98,11 @@ func getUserChoice(min, max int) int {
 }
 
 const (
-	startContainerAction     = iota
-	connectToContainerAction = iota
-	saveContainerAction      = iota
-	stopContainerAction      = iota
+	startContainerAction       = iota
+	connectToContainerAction   = iota
+	saveContainerAction        = iota
+	stopContainerAction        = iota
+	showContainerConfiguration = iota
 )
 
 func readContainerID(conf *ImageConfiguration) []byte {

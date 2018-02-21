@@ -135,12 +135,12 @@ func ReadDockerConfiguration(file string, configurations *[]ImageConfiguration) 
 	for i := range *configurations {
 		var conf = &(*configurations)[i]
 		if conf.Name == "" {
-			panic("The 'name' field is mandatory")
+			panic("The 'name' field is mandatory and must be a string")
 		}
 		// Remove all white spaces
 		conf.Name = strings.Join(strings.Fields(conf.Name), "")
 		if conf.Image == "" {
-			panic("The 'image' field is mandatory")
+			panic("The 'image' field is mandatory and must be a string")
 		}
 		if conf.Tag == "" {
 			conf.Tag = "latest"
