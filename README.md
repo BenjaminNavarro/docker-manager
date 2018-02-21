@@ -11,11 +11,17 @@ With docker manager you can:
 
 ## Installation
 
+### From source
+
 To install docker manager in your Go workspace, run:
 
 ```
 go get github.com/BenjaminNavarro/docker-manager
 ```
+
+### From binaries
+
+You can get the latest's release Linux binaries from [here](https://github.com/BenjaminNavarro/docker-manager/releases). Extract the archive's content, e.g with `tar -xf docker-manager.tar.gz`, and move the `docker-manager` executable to a suitable location, e.g `mv docker-manager /usr/local/bin`.
 
 ## Usage
 
@@ -69,6 +75,7 @@ Please select an action for this container:
 	2) Connect
 	3) Save
 	4) Stop
+	5) Show
 >>> 1
 ```
 
@@ -77,6 +84,7 @@ You can also pass arguments to `docker-manager` to skip the menus. The first arg
  * connect
  * save
  * stop
+ * show
 
 So for example you can run: `docker-manager MyFirstContainer start`
 
