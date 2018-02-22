@@ -13,15 +13,21 @@ With docker manager you can:
 
 ### From source
 
-To install docker manager in your Go workspace, run:
+If you are running Archlinux, you can install the package `docker-manager-git` from the [AUR](https://aur.archlinux.org/packages/docker-manager-git/).
+
+Otherwise you can compile it yourself by running (Golang is required):
 
 ```
 go get github.com/BenjaminNavarro/docker-manager
 ```
 
+Then you can move or link the `docker-manager` executable to a suitable location, e.g `mv docker-manager /usr/local/bin`.
+
 ### From binaries
 
-You can get the latest's release Linux binaries from [here](https://github.com/BenjaminNavarro/docker-manager/releases). Extract the archive's content, e.g with `tar -xf docker-manager.tar.gz`, and move the `docker-manager` executable to a suitable location, e.g `mv docker-manager /usr/local/bin`.
+You can get the latest's release Linux binaries from [here](https://github.com/BenjaminNavarro/docker-manager/releases). Extract the archive's content, e.g with `tar -xf docker-manager.tar.gz`, and move or link the `docker-manager` executable to a suitable location, e.g `mv docker-manager /usr/local/bin`.
+
+
 
 ## Usage
 
