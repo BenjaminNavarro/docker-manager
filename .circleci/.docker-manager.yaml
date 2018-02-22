@@ -1,0 +1,25 @@
+-   name: MyFirstContainer
+    image: my/container
+    tag: latest # default
+    save_tag: latest    # default = tag
+    autosave: true      # default: false
+    runtime: nvidia     # default: none
+    privileged: true    # default: false
+    gui: true           # default: false
+    shell: bash         # default
+    folders:            # default: none
+        -   host: /path/to/my/folder
+            container: /path/inside/the/container
+    capabilities:
+        add:
+            - NET_RAW
+        drop:
+            - SETPCAP
+    extra_flags: --env="GOPATH=/opt/go"
+
+-   name: Another Container    # spaces will be removed
+    image: other/container
+    autosave: true
+    network: host               # default bridge
+    capabilities:
+        add: [ALL]
