@@ -1,6 +1,6 @@
-# Docker Manager
+[![CircleCI](https://circleci.com/gh/BenjaminNavarro/docker-manager.svg?style=svg)](https://circleci.com/gh/BenjaminNavarro/docker-manager)
 
-## Introduction
+# Introduction
 
 With docker manager you can:
  * Configure your containers easily using a simple YAML file
@@ -9,9 +9,9 @@ With docker manager you can:
  * Save the containers' state at any time
  * Stop your containers and, optionally, save their current state
 
-## Installation
+# Installation
 
-### From source
+## From source
 
 If you are running Archlinux, you can install the package `docker-manager-git` from the [AUR](https://aur.archlinux.org/packages/docker-manager-git/).
 
@@ -23,15 +23,15 @@ go get github.com/BenjaminNavarro/docker-manager
 
 Then you can move or link the `docker-manager` executable to a suitable location, e.g `mv docker-manager /usr/local/bin`.
 
-### From binaries
+## From binaries
 
 You can get the latest's release Linux binaries from [here](https://github.com/BenjaminNavarro/docker-manager/releases). Extract the archive's content, e.g with `tar -xf docker-manager.tar.gz`, and move or link the `docker-manager` executable to a suitable location, e.g `mv docker-manager /usr/local/bin`.
 
 
 
-## Usage
+# Usage
 
-### The configuration file
+## The configuration file
 
 Docker manager requires a YAML configuration file located at:
 ```
@@ -67,7 +67,7 @@ It can contain any number of docker configurations. You can follow the following
 
 ```
 
-### Using docker manager
+## Using docker manager
 
 You can run `docker-manager` then go through the menus to select what you want to do:
 
