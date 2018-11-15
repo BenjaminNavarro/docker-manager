@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"os"
 	"strings"
 
 	yaml "gopkg.in/yaml.v2"
@@ -78,8 +77,10 @@ func (configuration *ImageConfiguration) GenerateStartCommand() []string {
 	}
 
 	if configuration.Gui {
-		push("--env=\"DISPLAY=" + os.Getenv("DISPLAY") + "\"")
-		push("--env=\"QT_X11_NO_MITSHM=1\"")
+		push("--env")
+		push("DISPLAY")
+		push("--env")
+		push("QT_X11_NO_MITSHM=1")
 		push("--volume=/dev/video0:/dev/video0")
 		push("--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro")
 	}
@@ -101,8 +102,6 @@ func (configuration *ImageConfiguration) GenerateStartCommand() []string {
 	}
 
 	push(configuration.GetImageWithTag())
-
-	// push(" 1>/dev/null")
 
 	return command
 }
