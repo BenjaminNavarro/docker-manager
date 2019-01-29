@@ -136,7 +136,7 @@ func startContainer(conf *ImageConfiguration) {
 	fmt.Println("Starting the container " + conf.Image + ":" + conf.Tag)
 	runOutput, runError := cmd.CombinedOutput()
 	if runError != nil {
-		log.Fatal("Unable to start the container: ", runError, ". ", runOutput)
+		log.Fatal("Unable to start the container: ", runError, ". ", string(runOutput))
 	}
 	out, psError := exec.Command("docker", []string{"ps", "-q", "-l"}...).Output()
 	if psError != nil {
