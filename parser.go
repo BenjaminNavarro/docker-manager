@@ -97,10 +97,12 @@ func (configuration *ImageConfiguration) GenerateStartCommand() []string {
 		push("--cap-drop=" + configuration.Capabilities.Drop[idx])
 	}
 
-	tokens := strings.Split(configuration.ExtraFlags, " ")
-	for tokenIdx := range tokens {
-		push(tokens[tokenIdx])
-	}
+    if len(configuration.ExtraFlags) > 0 {
+        tokens := strings.Split(configuration.ExtraFlags, " ")
+        for tokenIdx := range tokens {
+            push(tokens[tokenIdx])
+        }
+    }
 
 	push(configuration.GetImageWithTag())
 
