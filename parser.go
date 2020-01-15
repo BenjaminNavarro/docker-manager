@@ -63,8 +63,12 @@ func (configuration *ImageConfiguration) GenerateStartCommand() []string {
 	}
 	push("docker")
 	push("run")
-	push("-ti")
-	push("-d")
+	push("--rm") // remove container upon exit
+	push("--tty")
+	push("--interactive")
+	push("--detach")
+	push("--name")
+	push(configuration.Name)
 
 	if configuration.Runtime != "none" {
 		push("--runtime=" + configuration.Runtime)
@@ -97,12 +101,12 @@ func (configuration *ImageConfiguration) GenerateStartCommand() []string {
 		push("--cap-drop=" + configuration.Capabilities.Drop[idx])
 	}
 
-    if len(configuration.ExtraFlags) > 0 {
-        tokens := strings.Split(configuration.ExtraFlags, " ")
-        for tokenIdx := range tokens {
-            push(tokens[tokenIdx])
-        }
-    }
+	if len(configuration.ExtraFlags) > 0 {
+		tokens := strings.Split(configuration.ExtraFlags, " ")
+		for tokenIdx := range tokens {
+			push(tokens[tokenIdx])
+		}
+	}
 
 	push(configuration.GetImageWithTag())
 
